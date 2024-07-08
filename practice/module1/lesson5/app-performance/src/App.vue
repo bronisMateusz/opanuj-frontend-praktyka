@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineAsyncComponent, provide, ref, watch } from 'vue';
+import { provide, ref, watch } from 'vue';
 import { useQuery } from '@tanstack/vue-query';
 import axios from 'axios';
 
