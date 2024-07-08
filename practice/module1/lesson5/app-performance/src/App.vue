@@ -22,7 +22,7 @@ const { data: authorsData } = useQuery({
     ),
 });
 
-const { isPending: isArticlesPending, data: articlesData } = useQuery({
+const { data: articlesData } = useQuery({
   queryKey: ['articles'],
   queryFn: () =>
     fetchData('http://localhost:3000/api/data/articles?timeout=3000').then(
