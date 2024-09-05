@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Character } from '../api/api-client-generated/models/Character';
+import type { Character } from '../api/models/Character';
 defineProps<{
   character: Character;
 }>();

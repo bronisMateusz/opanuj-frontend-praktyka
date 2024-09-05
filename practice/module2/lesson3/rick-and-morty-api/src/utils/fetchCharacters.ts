@@ -1,5 +1,5 @@
-import { DefaultApi } from '../api/api-client-generated/apis/DefaultApi';
-import type { CharacterListResponse } from '../api/api-client-generated/models/CharacterListResponse';
+import { DefaultApi } from '../api/apis/DefaultApi';
+import type { CharacterListResponse } from '../api/models/CharacterListResponse';
 
 export const fetchCharacters = async (): Promise<CharacterListResponse | null> => {
   try {

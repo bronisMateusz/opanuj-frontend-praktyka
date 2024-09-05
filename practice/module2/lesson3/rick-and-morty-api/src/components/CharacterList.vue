@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CharacterListResponse } from '../api/api-client-generated/models/CharacterListResponse';
+import type { CharacterListResponse } from '../api/models/CharacterListResponse';
 import CharacterCard from './CharacterCard.vue';
 
 defineProps<{
