@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -48,10 +48,8 @@ export interface Article {
 /**
  * Check if a given object implements the Article interface.
  */
-export function instanceOfArticle(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+export function instanceOfArticle(value: object): value is Article {
+    return true;
 }
 
 export function ArticleFromJSON(json: any): Article {
@@ -59,31 +57,28 @@ export function ArticleFromJSON(json: any): Article {
 }
 
 export function ArticleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Article {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'id': !exists(json, 'id') ? undefined : json['id'],
-        'author': !exists(json, 'author') ? undefined : json['author'],
-        'title': !exists(json, 'title') ? undefined : json['title'],
-        'content': !exists(json, 'content') ? undefined : json['content'],
+        'id': json['id'] == null ? undefined : json['id'],
+        'author': json['author'] == null ? undefined : json['author'],
+        'title': json['title'] == null ? undefined : json['title'],
+        'content': json['content'] == null ? undefined : json['content'],
     };
 }
 
 export function ArticleToJSON(value?: Article | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'id': value.id,
-        'author': value.author,
-        'title': value.title,
-        'content': value.content,
+        'id': value['id'],
+        'author': value['author'],
+        'title': value['title'],
+        'content': value['content'],
     };
 }
 

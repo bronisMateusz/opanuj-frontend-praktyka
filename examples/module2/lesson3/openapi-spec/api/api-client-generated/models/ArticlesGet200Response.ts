@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { Article } from './Article';
 import {
     ArticleFromJSON,
@@ -37,10 +37,8 @@ export interface ArticlesGet200Response {
 /**
  * Check if a given object implements the ArticlesGet200Response interface.
  */
-export function instanceOfArticlesGet200Response(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+export function instanceOfArticlesGet200Response(value: object): value is ArticlesGet200Response {
+    return true;
 }
 
 export function ArticlesGet200ResponseFromJSON(json: any): ArticlesGet200Response {
@@ -48,25 +46,22 @@ export function ArticlesGet200ResponseFromJSON(json: any): ArticlesGet200Respons
 }
 
 export function ArticlesGet200ResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ArticlesGet200Response {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'articles': !exists(json, 'articles') ? undefined : ((json['articles'] as Array<any>).map(ArticleFromJSON)),
+        'articles': json['articles'] == null ? undefined : ((json['articles'] as Array<any>).map(ArticleFromJSON)),
     };
 }
 
 export function ArticlesGet200ResponseToJSON(value?: ArticlesGet200Response | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'articles': value.articles === undefined ? undefined : ((value.articles as Array<any>).map(ArticleToJSON)),
+        'articles': value['articles'] == null ? undefined : ((value['articles'] as Array<any>).map(ArticleToJSON)),
     };
 }
 
