@@ -6,12 +6,11 @@ defineProps<{
 const URL = 'https://rickandmortyapi.com/api/episode/';
 </script>
 <template>
-  <section class="character-card">
+  <section>
     <h3>{{ character.name }}</h3>
     <img
       :src="character.image"
       :alt="`Image of ${character.name}`"
-      class="character-image"
       width="300"
       height="300"
     />
@@ -34,22 +33,14 @@ const URL = 'https://rickandmortyapi.com/api/episode/';
   </section>
 </template>
 <style scoped>
-.character-card {
+section {
   display: grid;
   gap: 8px;
 }
 
 img {
   margin-inline: auto;
-}
-
-.character-image {
   border-radius: 8px;
-}
-
-h4,
-p {
-  margin: 0;
 }
 
 ol {
